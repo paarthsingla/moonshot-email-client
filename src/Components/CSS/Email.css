@@ -1,0 +1,28 @@
+.read {
+    background-color: #F2F2F2;
+}
+
+.select-y {
+    background-color: white;
+    border: 1px solid #E54065;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.details p {
+  margin: 5px;
+  color: #636363;
+}
+
+.details p span {
+  font-weight: bold;
+}
+
+.fav {
+  font-weight: bold;
+  color: #E54065;
+  padding: 0 25px;
+}

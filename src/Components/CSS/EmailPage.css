@@ -1,0 +1,29 @@
+footer {
+    bottom: 0;
+    padding: 15px 30px;
+    color: #636363;
+    font-weight: 500;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+  
+footer button {
+  padding: 5px 15px;
+  border: 1px solid #F4F5F9;
+  border-radius: 20px;
+  background-color: #F4F5F9;
+  color: #636363;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.page:hover {
+  border: 1px solid #CFD2DC;
+}
+
+.page-selected {
+  background-color: #E1E4EA;
+  border: 1px solid #CFD2DC;
+}

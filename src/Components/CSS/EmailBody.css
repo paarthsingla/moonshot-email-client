@@ -1,0 +1,49 @@
+aside{
+    width: 66%;
+    padding: 0 5px;
+    color: #636363;
+}
+
+.body-section {
+  padding: 30px 10px;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+.body {
+  width: 100%;
+  padding: 0 20px 0 0;
+}
+
+.body-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.body-email-name {
+  font-size: xx-large;
+  font-weight: 500;
+}
+
+.body-details button{
+  border: 1px solid #E54065;
+  margin: 5px 0px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.mark-fav{
+  background-color: #E54065;
+  color: white;
+}
+
+.unmark-fav{
+  background-color: white;
+  color: #E54065;
+}
+
+img {
+  height: 70px;
+  width: 70px;
+}

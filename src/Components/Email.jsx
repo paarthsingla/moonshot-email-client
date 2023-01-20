@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addReadMail, setBodyDisplayId } from "../Utils/filterSlice";
+import "./CSS/Email.css";
 
 function Email({emailData}) {
     const { id, from:{ email, name }, subject, short_description, date } = emailData;

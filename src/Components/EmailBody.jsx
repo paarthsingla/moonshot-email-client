@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { fetchEmailBody, setEmailBody } from "../Utils/emailSlice";
 import { addFavMail, removeFavMail } from "../Utils/filterSlice";
+import "./CSS/EmailBody.css";
+import loader from "../loader.gif";
 
 function EmailBody() {
   const [emailDetails, setEmailDetails] = useState({
@@ -20,7 +22,7 @@ function EmailBody() {
     setEmailDetails(emailList.find(item => item.id===bodyDisplayId));
     if(favMails.includes(bodyDisplayId)) setFav(true);
     else setFav(false);
-    dispatch(setEmailBody('Loading...'));
+    dispatch(setEmailBody('<img src='+loader+'>'));
     dispatch(fetchEmailBody(bodyDisplayId));
   }, [bodyDisplayId])
 

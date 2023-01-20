@@ -1,0 +1,28 @@
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+main .error {
+  width: 100%;
+  text-align: center;
+  color: #636363;
+  font-weight: 700;
+}
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+main, .full {
+  width: 100%;
+}
+
+main, .side {
+  width: 33%;
+}
+
+main section {
+  cursor: pointer;
+}

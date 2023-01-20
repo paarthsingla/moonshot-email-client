@@ -3,7 +3,6 @@ import axios from "axios";
 
 const initialState = {
     emailList: {},
-    emailTotal: 0,
     emailPage: 1,
     emailBody: ''
 };
@@ -12,15 +11,21 @@ const URL_List = "https://flipkart-email-mock.now.sh/";
 const URL_Body = "https://flipkart-email-mock.now.sh/?id=";
 
 export const fetchEmailList = createAsyncThunk('fetchEmailList', async (pageNumber) => {
-    const {data} = (await axios.get(URL_List+'?page='+pageNumber));
+    let setURL = URL_List;
+    if(pageNumber>0) setURL = setURL+'?page='+pageNumber;
+    const {data} = (await axios.get(setURL));
     if(data) return data;
     return undefined;
 });
 
 export const fetchEmailBody = createAsyncThunk('fetchEmailBody', async (id) => {
-    const {data} = (await axios.get(URL_Body+id));
-    if(data) return data;
-    return undefined;
+    try {
+        const {data} = (await axios.get(URL_Body+id));
+        if(data) return data;
+        return undefined;
+    } catch (error) {
+        return undefined;
+    }
 });
 
 const emailSlice = createSlice({
@@ -32,6 +37,9 @@ const emailSlice = createSlice({
         },
         setEmailBody(state, action) {
             state.emailBody = action.payload;
+        },
+        setEmailList(state, action) {
+            state.emailList = {};
         }
     },
     extraReducers: builder => {
@@ -50,14 +58,13 @@ const emailSlice = createSlice({
                     item.date = formatedDate;
                     return item;
                 })
-                state.emailTotal = action.payload.total;
             })
             .addCase(fetchEmailBody.fulfilled, (state, action) => {
-                state.emailBody = (action.payload.body)?action.payload.body:'Error Fetching Data. Please Refresh.!';
+                state.emailBody = (action.payload.body)?action.payload.body:'<strong>Error Fetching Data. Please Refresh.!</strong>';
             })
     }
 });
 
-export const { setEmailPage, setEmailBody } = emailSlice.actions;
+export const { setEmailPage, setEmailBody, setEmailList } = emailSlice.actions;
 
 export default emailSlice.reducer;
